@@ -1,0 +1,37 @@
+
+scontrol show jobid 5412931
+JobId=5412931 JobName=zsr_code_challenge_task1_balance
+   UserId=lcl_uotiscsccs1044(1911044) GroupId=lcl_uotiscscc(1910004) MCS_label=N/A
+   Priority=2281569 Nice=0 Account=lcl-uotiscsccs1044 QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:21 TimeLimit=01:00:00 TimeMin=N/A
+   SubmitTime=2021-05-26T07:36:28 EligibleTime=2021-05-26T07:36:28
+   AccrueTime=2021-05-26T07:36:28
+   StartTime=2021-05-26T07:36:28 EndTime=2021-05-26T07:36:49 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-05-26T07:36:28
+   Partition=compute AllocNode:Sid=nia-login01:318691
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia[0530-0532]
+   BatchHost=nia0529
+   NumNodes=3 NumCPUs=320 NumTasks=160 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=320,mem=700000M,node=4,billing=160
+   Socks/Node=* NtasksPerN:B:S:C=40:0:*:* CoreSpec=*
+   MinCPUsNode=40 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/l/lcl_uotiscscc/lcl_uotiscsccs1044/zsr/ISC21-CodeChallenge/task1/balance.sh
+   WorkDir=/gpfs/fs0/scratch/l/lcl_uotiscscc/lcl_uotiscsccs1044/zsr/ISC21-CodeChallenge/task1
+   StdErr=/gpfs/fs0/scratch/l/lcl_uotiscscc/lcl_uotiscsccs1044/zsr/ISC21-CodeChallenge/task1/out/balance_sbatch.txt
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/l/lcl_uotiscscc/lcl_uotiscsccs1044/zsr/ISC21-CodeChallenge/task1/out/balance_sbatch.txt
+   Power=
+   MailUser=lcl_uotiscsccs1044@scinet.local MailType=FAIL
+
+sacct -j 5412931
+       JobID    JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- --------
+5412931      zsr_code_+ lcl-uotis+   00:00:21                        01:07.048  00:13.453      0:0
+5412931.bat+      batch lcl-uotis+   00:00:21    138528K      1244K  00:20.263  00:03.554      0:0
+5412931.ext+     extern lcl-uotis+   00:00:21    138360K       876K  00:00.002  00:00.001      0:0
+5412931.0         orted lcl-uotis+   00:00:03    207252K      1300K  00:46.782  00:09.897      0:0
