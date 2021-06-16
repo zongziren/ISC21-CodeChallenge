@@ -1,0 +1,5 @@
+Total of 4 nodes
+Host nia0887.scinet.local - 1 ranks: 0
+Host nia0889.scinet.local - 1 ranks: 40
+Host nia0891.scinet.local - 1 ranks: 80
+Host nia0894.scinet.local - 1 ranks: 120

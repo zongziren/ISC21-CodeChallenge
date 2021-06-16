@@ -1,0 +1,5 @@
+Total of 4 nodes
+Host nia1832.scinet.local - 1 ranks: 40
+Host nia1833.scinet.local - 1 ranks: 80
+Host nia1834.scinet.local - 1 ranks: 120
+Host nia1831.scinet.local - 1 ranks: 0
