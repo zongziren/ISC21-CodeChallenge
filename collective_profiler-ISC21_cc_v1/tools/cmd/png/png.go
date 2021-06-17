@@ -183,8 +183,21 @@ func sz_to_png(sz [max_ranks][max_ranks]int, path string, mode int) {
 	}
 }
 func main() {
-
-	data, err := ioutil.ReadFile("/home/zsc/scsc/New folder/send-counters.job0.rank0.txt") //输入文件路径
+	var filein string
+	var filepath string
+	if len(os.Args) > 1 {
+		filein = os.Args[1]
+		lastpiepos := strings.LastIndex(filein, "/")
+		if lastpiepos == -1 {
+			fmt.Println("Can't guess path of input file")
+			os.Exit(0)
+		}
+		filepath = filein[:lastpiepos]
+	} else {
+		fmt.Println("No input file!")
+		return
+	}
+	data, err := ioutil.ReadFile(filein) //输入文件路径
 	if err != nil {
 		fmt.Println("File reading error", err)
 		return
@@ -193,7 +206,7 @@ func main() {
 	pattern := strings.Split(string(data)[1:], "#")
 	sort.Sort(TestStringList(pattern))
 	//输出每个pattern的weight到weight.txt
-	outputFile, outputError := os.OpenFile("weight.txt", os.O_WRONLY|os.O_CREATE, 0666)
+	outputFile, outputError := os.OpenFile(filepath+"/weight.txt", os.O_WRONLY|os.O_CREATE, 0666)
 	if outputError != nil {
 		fmt.Println(outputError)
 		return
@@ -219,14 +232,14 @@ func main() {
 			}
 		}
 
-		sz_to_png(sz, strconv.Itoa(i)+"_task3.png", 0)
-		sz_to_png(sz, strconv.Itoa(i)+"_task5_linear.png", 1)
-		sz_to_png(sz, strconv.Itoa(i)+"_task5_log.png", 2)
-		sz_to_png(sz, strconv.Itoa(i)+"_task5_own.png", 3)
+		sz_to_png(sz, filepath+"/"+strconv.Itoa(i)+"_task3.png", 0)
+		sz_to_png(sz, filepath+"/"+strconv.Itoa(i)+"_task5_linear.png", 1)
+		sz_to_png(sz, filepath+"/"+strconv.Itoa(i)+"_task5_log.png", 2)
+		sz_to_png(sz, filepath+"/"+strconv.Itoa(i)+"_task5_own.png", 3)
 	}
-	sz_to_png(allsz, "task4.png", 0)
-	sz_to_png(allsz, "task4_linear.png", 1)
-	sz_to_png(allsz, "task4_log.png", 2)
-	sz_to_png(allsz, "task4_own.png", 3)
+	sz_to_png(allsz, filepath+"/task4.png", 0)
+	sz_to_png(allsz, filepath+"/task4_linear.png", 1)
+	sz_to_png(allsz, filepath+"/task4_log.png", 2)
+	sz_to_png(allsz, filepath+"/task4_own.png", 3)
 
 }
