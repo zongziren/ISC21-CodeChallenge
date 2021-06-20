@@ -1,2 +1,2 @@
 # WRF is before use rankfile
-# WWRF2 is after use rankfile
+# WRF2 is after use rankfile
